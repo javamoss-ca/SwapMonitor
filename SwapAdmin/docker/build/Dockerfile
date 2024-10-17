@@ -4,7 +4,7 @@ VOLUME /tmp
 ARG JAR_FILE=build/libs/SwapAdmin-1.0.0-SNAPSHOT.jar
 COPY ${JAR_FILE} /app.jar
 RUN mkdir /startup
-COPY docker/entrypoint.sh /startup/entrypoint.sh
+COPY docker/build/entrypoint.sh /startup/entrypoint.sh
 RUN chmod +x /startup/entrypoint.sh
 
 ENTRYPOINT ["/startup/entrypoint.sh"]
