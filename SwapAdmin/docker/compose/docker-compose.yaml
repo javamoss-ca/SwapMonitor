@@ -1,0 +1,25 @@
+services:
+  #cnswap:
+    #image: "avera/cnswap:0.0.1_linux"
+    #image: "skipatroltest1/swapy/swapy_app:latest"
+    #ports:
+    #  - "80:8080"
+    #restart: always
+    #environment:
+    #  - TZ="America/Toronto"
+  db:
+    image: "postgres:16.3-bookworm"
+    restart: always
+    environment:
+      - POSTGRES_USER=cnswap
+      - POSTGRES_PASSWORD=vvLv2ndnZ
+      - POSTGRES_DB=cnswapdb
+      - TZ="America/Toronto"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+volumes:
+  db_data:

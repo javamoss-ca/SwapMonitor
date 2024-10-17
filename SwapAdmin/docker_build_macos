@@ -1,0 +1,19 @@
+#!/bin/sh
+
+./gradlew build
+
+echo "docker stop swapy"
+
+# For Local MAC OS builds
+docker build --build-arg JAR_FILE=build/libs/cnswapweb-1.0.0-SNAPSHOT.jar -t avera/cnswap:0.0.1_mac .
+
+docker stop swapy
+
+docker rm swapy
+
+# For Local MAC OS builds
+docker run -d --name swapy -p 443:443 -v /tmp/docker_data/tmp:/tmp/  -v /tmp/docker_data/swapy:/swapy/ avera/cnswap:0.0.1_mac
+
+
+
+
