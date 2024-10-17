@@ -2,7 +2,7 @@
 
 ./gradlew build
 
-docker build --platform linux/amd64 --build-arg JAR_FILE=build/libs/SwapAdmin-1.0.0-SNAPSHOT.jar -t avera/SwapAdmin:1.0.0_linux docker/build/Dockerfile
+docker build --platform linux/amd64 --build-arg JAR_FILE=build/libs/SwapAdmin-1.0.0-SNAPSHOT.jar -t avera/swapadmin:1.0.0_linux docker/build/Dockerfile
 
-docker save avera/SwapAdmin:1.0.0_linux -o /tmp/SwapAdmin.1.0.0_linux.tar.gz
+docker save avera/swapadmin:1.0.0_linux -o /tmp/SwapAdmin.1.0.0_linux.tar.gz
 
